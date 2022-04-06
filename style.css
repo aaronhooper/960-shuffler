@@ -1,0 +1,10 @@
+#output {
+    font-size: 52px;
+    user-select: none;
+}
+
+#button {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

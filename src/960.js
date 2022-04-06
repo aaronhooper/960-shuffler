@@ -1,5 +1,6 @@
 const LIGHT_BISHOP_POSITIONS = [1, 3, 5, 7]
 const DARK_BISHOP_POSITIONS = [0, 2, 4, 6]
+
 const KNIGHT_POSITIONS = [
     ['N', 'N', '-', '-', '-'],
     ['N', '-', 'N', '-', '-'],
@@ -12,6 +13,14 @@ const KNIGHT_POSITIONS = [
     ['-', '-', 'N', '-', 'N'],
     ['-', '-', '-', 'N', 'N']
 ]
+
+const PIECE_EMOJI = {
+    'K': '♚',
+    'Q': '♛',
+    'B': '♝',
+    'N': '♞',
+    'R': '♜'
+}
 
 function getPosition(N) {
     if (N < 0 || N >= 960) throw new RangeError()
@@ -54,6 +63,10 @@ function getPosition(N) {
     return position
 }
 
-getRandomPosition = () => getPosition(Math.floor(Math.random() * 1000) % 960)
+getRandomId = () => Math.floor(Math.random() * 1000) % 960
 
-module.exports = { getPosition, getRandomPosition }
+function toEmoji(pieceArray) {
+    return pieceArray.map((piece) => PIECE_EMOJI[piece])
+}
+
+module.exports = { getPosition, getRandomId, toEmoji }
