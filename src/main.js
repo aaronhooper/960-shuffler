@@ -1,9 +1,12 @@
-const getNewPositionWithEmoji = () => toEmoji(new Position(getRandomId()).getPieceArray()).join('')
-
 const preElement = document.getElementById('output')
 const buttonElement = document.getElementById('button')
-preElement.innerHTML = getNewPositionWithEmoji()
+const positionIdElement = document.getElementById('position-id')
 
-buttonElement.addEventListener('click', (e) => {
-    preElement.innerHTML = getNewPositionWithEmoji()
-})
+function refreshView () {
+    const position = new Position(getRandomId())
+    preElement.innerHTML = toEmoji(position.getPieceArray()).join('')
+    positionIdElement.innerHTML = position.getId()
+}
+
+document.addEventListener('DOMContentLoaded', (e) => refreshView())
+buttonElement.addEventListener('click', (e) => refreshView())
