@@ -50,17 +50,17 @@ function toEmoji (pieceArray) {
     return pieceArray.map((piece) => PIECE_EMOJI[piece])
 }
 
-const placeLightSquareBishop = function () {
+function placeLightSquareBishop () {
     const remainder = this._id % 4
     this._pieceArray[LIGHT_BISHOP_POSITIONS[remainder]] = 'B'
 }
 
-const placeDarkSquareBishop = function () {
+function placeDarkSquareBishop () {
     const remainder = Math.floor(this._id / 4) % 4
     this._pieceArray[DARK_BISHOP_POSITIONS[remainder]] = 'B'
 }
 
-const placeQueen = function () {
+function placeQueen () {
     const remainder = Math.floor(Math.floor(this._id / 4) / 4) % 6
     const queenPositions = this._pieceArray.reduce((all, element, index) => {
         if (element === null) all.push(index)
@@ -69,7 +69,7 @@ const placeQueen = function () {
     this._pieceArray[queenPositions[remainder]] = 'Q'
 }
 
-const placeKnights = function () {
+function placeKnights () {
     const quotient = Math.floor(Math.floor(Math.floor(this._id / 4) / 4) / 6)
     KNIGHT_POSITIONS[quotient].forEach((element) => {
         const emptyIndex = this._pieceArray.indexOf(null)
@@ -77,7 +77,7 @@ const placeKnights = function () {
     })
 }
 
-const placeKingAndRooks = function () {
+function placeKingAndRooks () {
     const leftRookIndex = this._pieceArray.indexOf('-')
     this._pieceArray[leftRookIndex] = 'R'
     const kingIndex = this._pieceArray.indexOf('-')
