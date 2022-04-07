@@ -4,7 +4,7 @@ const positionIdElement = document.getElementById('position-id')
 
 function refreshView () {
   const position = new Position(getRandomId())
-  preElement.innerHTML = toEmoji(position.getPieceArray()).join('')
+  preElement.innerHTML = position.getEmoji().join('')
   positionIdElement.innerHTML = position.getId()
 }
 

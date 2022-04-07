@@ -42,14 +42,14 @@ class Position {
   getId () {
     return this._id
   }
+
+  getEmoji () {
+    return this._pieceArray.map((piece) => PIECE_EMOJI[piece])
+  }
 }
 
 function getRandomId () {
   return Math.floor(Math.random() * 1000) % 960
-}
-
-function toEmoji (pieceArray) {
-  return pieceArray.map((piece) => PIECE_EMOJI[piece])
 }
 
 function placeLightSquareBishop () {
