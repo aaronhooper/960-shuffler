@@ -22,51 +22,68 @@ const PIECE_EMOJI = {
     'R': '♜'
 }
 
-function getPosition(N) {
-    if (N < 0 || N >= 960) throw new RangeError()
+function Position (id) {
+    if (id < 0 || id >= 960) throw new RangeError()
 
-    const position = Array(8).fill(null)
-
-    // place light square bishop
-    const N2 = Math.floor(N / 4)
-    const B1 = N % 4
-    position[LIGHT_BISHOP_POSITIONS[B1]] = 'B'
-    
-    // place dark square bishop
-    const N3 = Math.floor(N2 / 4)
-    const B2 = N2 % 4
-    position[DARK_BISHOP_POSITIONS[B2]] = 'B'
-
-    // place queen
-    const N4 = Math.floor(N3 / 6)
-    const Q = N3 % 6
-    const queenPositions = position.reduce((all, element, index) => {
-        if (element === null) all.push(index)
-        return all
-    }, [])
-    position[queenPositions[Q]] = 'Q'
-
-    // place knights
-    KNIGHT_POSITIONS[N4].forEach((element) => {
-        const emptyIndex = position.indexOf(null)
-        position[emptyIndex] = element
-    })
-    
-    // place king between 2 rooks on remaining squares
-    const leftRookIndex = position.indexOf('-')
-    position[leftRookIndex] = 'R'
-    const kingIndex = position.indexOf('-')
-    position[kingIndex] = 'K'
-    const rightRookIndex = position.indexOf('-')
-    position[rightRookIndex] = 'R'
-
-    return position
+    this._id = id
+    this._pieceArray = Array(8).fill(null)
+    placeLightSquareBishop.call(this)
+    placeDarkSquareBishop.call(this)
+    placeQueen.call(this)
+    placeKnights.call(this)
+    placeKingAndRooks.call(this)
 }
 
-getRandomId = () => Math.floor(Math.random() * 1000) % 960
+Position.prototype.getPieceArray = function () {
+    return this._pieceArray
+}
 
-function toEmoji(pieceArray) {
+Position.prototype.getId = function () {
+    return this._id
+}
+
+function getRandomId () {
+    return Math.floor(Math.random() * 1000) % 960
+}
+
+function toEmoji (pieceArray) {
     return pieceArray.map((piece) => PIECE_EMOJI[piece])
 }
 
-module.exports = { getPosition, getRandomId, toEmoji }
+const placeLightSquareBishop = function () {
+    const remainder = this._id % 4
+    this._pieceArray[LIGHT_BISHOP_POSITIONS[remainder]] = 'B'
+}
+
+const placeDarkSquareBishop = function () {
+    const remainder = Math.floor(this._id / 4) % 4
+    this._pieceArray[DARK_BISHOP_POSITIONS[remainder]] = 'B'
+}
+
+const placeQueen = function () {
+    const remainder = Math.floor(Math.floor(this._id / 4) / 4) % 6
+    const queenPositions = this._pieceArray.reduce((all, element, index) => {
+        if (element === null) all.push(index)
+        return all
+    }, [])
+    this._pieceArray[queenPositions[remainder]] = 'Q'
+}
+
+const placeKnights = function () {
+    const quotient = Math.floor(Math.floor(Math.floor(this._id / 4) / 4) / 6)
+    KNIGHT_POSITIONS[quotient].forEach((element) => {
+        const emptyIndex = this._pieceArray.indexOf(null)
+        this._pieceArray[emptyIndex] = element
+    })
+}
+
+const placeKingAndRooks = function () {
+    const leftRookIndex = this._pieceArray.indexOf('-')
+    this._pieceArray[leftRookIndex] = 'R'
+    const kingIndex = this._pieceArray.indexOf('-')
+    this._pieceArray[kingIndex] = 'K'
+    const rightRookIndex = this._pieceArray.indexOf('-')
+    this._pieceArray[rightRookIndex] = 'R'
+}
+
+module.exports = { Position, getRandomId, toEmoji }
