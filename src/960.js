@@ -22,24 +22,27 @@ const PIECE_EMOJI = {
     'R': '♜'
 }
 
-function Position (id) {
-    if (id < 0 || id >= 960) throw new RangeError()
+class Position {
+    constructor(id) {
+        if (id < 0 || id >= 960)
+            throw new RangeError()
 
-    this._id = id
-    this._pieceArray = Array(8).fill(null)
-    placeLightSquareBishop.call(this)
-    placeDarkSquareBishop.call(this)
-    placeQueen.call(this)
-    placeKnights.call(this)
-    placeKingAndRooks.call(this)
-}
+        this._id = id
+        this._pieceArray = Array(8).fill(null)
+        placeLightSquareBishop.call(this)
+        placeDarkSquareBishop.call(this)
+        placeQueen.call(this)
+        placeKnights.call(this)
+        placeKingAndRooks.call(this)
+    }
 
-Position.prototype.getPieceArray = function () {
-    return this._pieceArray
-}
+    getPieceArray() {
+        return this._pieceArray
+    }
 
-Position.prototype.getId = function () {
-    return this._id
+    getId() {
+        return this._id
+    }
 }
 
 function getRandomId () {
