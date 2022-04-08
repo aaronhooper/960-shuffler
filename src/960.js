@@ -28,9 +28,8 @@ const PIECE_EMOJI = {
     B: '♗',
     N: '♘',
     R: '♖'
-   }
+  }
 }
-
 
 class Position {
   constructor (id) {
@@ -53,12 +52,8 @@ class Position {
     return this._id
   }
 
-  getBlackEmoji () {
-    return this._pieceArray.map((piece) => PIECE_EMOJI['black'][piece])
-  }
-
-  getWhiteEmoji () {
-    return this._pieceArray.map((piece) => PIECE_EMOJI['white'][piece])
+  getEmoji (color) {
+    return this._pieceArray.map((piece) => PIECE_EMOJI[color][piece])
   }
 }
 
