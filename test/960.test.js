@@ -8,12 +8,11 @@ context('Position', () => {
       expect(() => new Position(-1)).to.throw(RangeError)
     })
   })
-  describe('getPieceArray()', () => {
+  describe('pieceArray', () => {
     it('returns the correct position', () => {
-      expect(new Position(0).getPieceArray()).to.eql(['B', 'B', 'Q', 'N', 'N', 'R', 'K', 'R'])
-      expect(new Position(518).getPieceArray()).to.eql(['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'])
-      expect(new Position(959).getPieceArray()).to.eql(['R', 'K', 'R', 'N', 'N', 'Q', 'B', 'B'])
+      expect(new Position(0).pieceArray).to.eql(['B', 'B', 'Q', 'N', 'N', 'R', 'K', 'R'])
+      expect(new Position(518).pieceArray).to.eql(['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'])
+      expect(new Position(959).pieceArray).to.eql(['R', 'K', 'R', 'N', 'N', 'Q', 'B', 'B'])
     })
-
   })
 })
