@@ -1,3 +1,5 @@
+import Position from './960.js'
+
 const preElement = document.getElementById('output')
 const buttonElement = document.getElementById('button')
 const positionIdElement = document.getElementById('position-id')

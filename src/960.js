@@ -95,4 +95,4 @@ class Position {
   }
 }
 
-module.exports = { Position }
+export default Position

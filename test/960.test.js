@@ -1,5 +1,5 @@
-const { expect } = require('chai')
-const { Position } = require('../src/960')
+import { expect } from 'chai'
+import Position from '../src/960.js'
 
 context('Position', () => {
   describe('constructor()', () => {
