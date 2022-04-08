@@ -15,12 +15,22 @@ const KNIGHT_POSITIONS = [
 ]
 
 const PIECE_EMOJI = {
-  K: '♚',
-  Q: '♛',
-  B: '♝',
-  N: '♞',
-  R: '♜'
+  black: {
+    K: '♚',
+    Q: '♛',
+    B: '♝',
+    N: '♞',
+    R: '♜'
+  },
+  white: {
+    K: '♔',
+    Q: '♕',
+    B: '♗',
+    N: '♘',
+    R: '♖'
+   }
 }
+
 
 class Position {
   constructor (id) {
@@ -43,8 +53,12 @@ class Position {
     return this._id
   }
 
-  getEmoji () {
-    return this._pieceArray.map((piece) => PIECE_EMOJI[piece])
+  getBlackEmoji () {
+    return this._pieceArray.map((piece) => PIECE_EMOJI['black'][piece])
+  }
+
+  getWhiteEmoji () {
+    return this._pieceArray.map((piece) => PIECE_EMOJI['white'][piece])
   }
 }
 
