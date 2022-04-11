@@ -1,6 +1,28 @@
-#black-pieces, #white-pieces {
-    font-size: 52px;
-    user-select: none;
+#board {
+  --dark-square: #b58863;
+  --light-square: #f0d9b5;
+}
+
+#black-row, #white-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.board-square {
+  height: 50px;
+  width: 50px;
+  font-size: 40px;
+  text-align: center;
+}
+
+#black-row > .board-square:nth-child(even),
+#white-row > .board-square:nth-child(odd) {
+  background-color: var(--dark-square);
+}
+
+#black-row > .board-square:nth-child(odd),
+#white-row > .board-square:nth-child(even) {
+  background-color: var(--light-square);
 }
 
 #button {
