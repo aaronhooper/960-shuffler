@@ -6,7 +6,8 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "npx eslint ./src"
   },
   "keywords": [],
   "author": "",
