@@ -1,3 +1,19 @@
+@import "reset.css";
+@import "color-scheme.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap');
+
+body {
+  color: var(--charleston-green);
+  background-color: var(--alabaster);
+  font-family: 'Noto Sans', sans-serif;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
 #board {
   --dark-square: #b58863;
   --light-square: #f0d9b5;
@@ -9,9 +25,9 @@
 }
 
 .board-square {
-  height: 50px;
-  width: 50px;
-  font-size: 40px;
+  height: 3.2rem;
+  width: 3.2rem;
+  font-size: 3.2rem;
   text-align: center;
 }
 
@@ -25,8 +41,23 @@
   background-color: var(--light-square);
 }
 
+#footing {
+  margin: 2rem 0;
+}
+
 #button {
-    font-size: 20px;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid var(--bleu-de-france);
+    color: var(--bleu-de-france);
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 4px;
+    user-select: none;
+    transition: color .05s ease-in, background-color .05s ease-in;
+}
+
+#button:hover {
+  color: var(--alabaster);
+  background-color: var(--bleu-de-france);
 }
