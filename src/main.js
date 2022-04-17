@@ -1,4 +1,5 @@
 import Position from './960.js'
+import './style.css'
 
 const buttonElement = document.getElementById('button')
 const positionIdElement = document.getElementById('position-id')
