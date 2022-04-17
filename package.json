@@ -5,9 +5,11 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
-    "test": "mocha",
-    "lint": "npx eslint ./src",
-    "build": "webpack"
+    "test": "npm run build-tests && npm run run-tests",
+    "lint": "eslint ./src",
+    "build": "webpack && npm run build-tests",
+    "build-tests": "webpack --config webpack-tests.config.js",
+    "run-tests": "mocha dist/test-bundle.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "mocha": "^9.2.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
   }
 }
