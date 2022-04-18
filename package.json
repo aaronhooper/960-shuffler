@@ -6,7 +6,7 @@
   "private": "true",
   "scripts": {
     "test": "npm run build-tests && npm run run-tests",
-    "lint": "eslint ./src",
+    "lint": "eslint .",
     "watch": "webpack-dev-server --mode=development",
     "build": "webpack && npm run build-tests",
     "build-tests": "webpack --config webpack-tests.config.js",
