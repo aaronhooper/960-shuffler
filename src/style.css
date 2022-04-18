@@ -1,6 +1,6 @@
-@import "reset.css";
+@import "../node_modules/reset-css/reset.css";
+@import "../node_modules/@fontsource/noto-sans/400.css";
 @import "color-scheme.css";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap');
 
 body {
   color: var(--charleston-green);
