@@ -7,6 +7,7 @@
   "scripts": {
     "test": "npm run build-tests && npm run run-tests",
     "lint": "eslint ./src",
+    "watch": "webpack-dev-server --mode=development",
     "build": "webpack && npm run build-tests",
     "build-tests": "webpack --config webpack-tests.config.js",
     "run-tests": "mocha dist/test-bundle.js"
@@ -22,10 +23,12 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "mocha": "^9.2.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1",
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
