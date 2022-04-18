@@ -11,5 +11,15 @@
         "sourceType": "module"
     },
     "rules": {
-    }
+    },
+    "overrides": [
+        {
+            "files": [
+                "./test/*"
+            ],
+            "env": {
+                "mocha": true
+            }
+        }
+    ]
 }
