@@ -27,24 +27,10 @@ function App() {
 function Board(props) {
   return <div id='board'>
     <div id="black-row">
-      <Square piece={props.blackPieces[0]} />
-      <Square piece={props.blackPieces[1]} />
-      <Square piece={props.blackPieces[2]} />
-      <Square piece={props.blackPieces[3]} />
-      <Square piece={props.blackPieces[4]} />
-      <Square piece={props.blackPieces[5]} />
-      <Square piece={props.blackPieces[6]} />
-      <Square piece={props.blackPieces[7]} />
+      {props.blackPieces.map((piece) => <Square piece={piece} />)}
     </div>
     <div id="white-row">
-      <Square piece={props.whitePieces[0]} />
-      <Square piece={props.whitePieces[1]} />
-      <Square piece={props.whitePieces[2]} />
-      <Square piece={props.whitePieces[3]} />
-      <Square piece={props.whitePieces[4]} />
-      <Square piece={props.whitePieces[5]} />
-      <Square piece={props.whitePieces[6]} />
-      <Square piece={props.whitePieces[7]} />
+      {props.whitePieces.map((piece) => <Square piece={piece} />)}
     </div>
   </div>
 }
