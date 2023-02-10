@@ -3,7 +3,7 @@ class Position {
   static #LIGHT_BISHOP_POSITIONS = [1, 3, 5, 7]
   static #DARK_BISHOP_POSITIONS = [0, 2, 4, 6]
   static #KNIGHT_POSITIONS = [
-    ['N', 'N', '-', '-', '-'],
+    ['-', 'N', '-', '-', '-'],
     ['N', '-', 'N', '-', '-'],
     ['N', '-', '-', 'N', '-'],
     ['N', '-', '-', '-', 'N'],
