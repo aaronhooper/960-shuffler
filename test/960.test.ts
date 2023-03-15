@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import Position from '../src/960.js'
+import Position from '../src/960'
 
 context('Position', () => {
   describe('constructor()', () => {

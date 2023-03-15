@@ -1,6 +1,16 @@
 import React, { useState } from 'react'
 import Position from './960'
 
+interface BoardProps {
+    blackPieces: any
+    whitePieces: any
+    positionId: number
+}
+
+interface SquareProps {
+    piece: string
+}
+
 function App() {
   const position = new Position(518)
   const [blackPieces, setBlackPieces] = useState(position.toEmoji('black'))
@@ -24,18 +34,18 @@ function App() {
   </>
 }
 
-function Board(props) {
+function Board(props: BoardProps) {
   return <div id='board'>
     <div id="black-row">
-      {props.blackPieces.map((piece) => <Square piece={piece} />)}
+      {props.blackPieces.map((piece: any) => <Square piece={piece} />)}
     </div>
     <div id="white-row">
-      {props.whitePieces.map((piece) => <Square piece={piece} />)}
+      {props.whitePieces.map((piece: any) => <Square piece={piece} />)}
     </div>
   </div>
 }
 
-function Square(props) {
+function Square(props: SquareProps) {
   return <div className='board-square'>
     {props.piece}
   </div>

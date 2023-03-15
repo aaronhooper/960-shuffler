@@ -1,3 +1,5 @@
+type PieceColor = string
+
 class Position {
 
   static #LIGHT_BISHOP_POSITIONS = [1, 3, 5, 7]
@@ -14,7 +16,7 @@ class Position {
     ['-', '-', 'N', '-', 'N'],
     ['-', '-', '-', 'N', 'N']
   ]
-  static #PIECE_EMOJI = {
+  static #PIECE_EMOJI: Record<string, any> = {
     black: {
       K: '♚',
       Q: '♛',
@@ -34,7 +36,7 @@ class Position {
   #id
   #pieceArray
 
-  constructor (id) {
+  constructor (id: number) {
     if (id < 0 || id >= 960) throw new RangeError()
 
     this.#id = id
@@ -58,7 +60,7 @@ class Position {
     return Math.floor(Math.random() * 1000) % 960
   }
 
-  toEmoji (color) {
+  toEmoji (color: PieceColor) {
     return this.#pieceArray.map((piece) => Position.#PIECE_EMOJI[color][piece])
   }
 
